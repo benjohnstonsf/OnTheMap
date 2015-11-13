@@ -8,14 +8,13 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UIAlertViewDelegate {
 	
 	// MARK: - Properties
 	
 	@IBOutlet weak var emailField: UITextField!
 	@IBOutlet weak var passwordField: UITextField!
 	@IBOutlet weak var loginButton: UIButton!
-	@IBOutlet weak var errorMessage: UILabel!
 	
 	// MARK: - Life Cycle
 	
@@ -47,7 +46,6 @@ class LoginViewController: UIViewController {
 	
 	func completeLogin() {
 		dispatch_async(dispatch_get_main_queue(), {
-			self.errorMessage.text = ""
 			let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MapNavigationController")
 			self.presentViewController(controller, animated: true, completion: nil)
 		})
@@ -58,7 +56,7 @@ class LoginViewController: UIViewController {
 	func displayError(errorString: String?){
 		dispatch_async(dispatch_get_main_queue(), {
 			if let errorString = errorString {
-				self.errorMessage.text = errorString
+				UIAlertView(title: "Oops", message: errorString, delegate: self, cancelButtonTitle: "Okay").show()
 			}
 		})
 	}
