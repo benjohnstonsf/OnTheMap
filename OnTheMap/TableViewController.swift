@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  TableViewController.swift
 //  OnTheMap
 //
 //  Created by Benjamin Johnston on 11/4/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class TableViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()

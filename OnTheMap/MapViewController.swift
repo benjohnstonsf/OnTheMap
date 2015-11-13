@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  MapViewController.swift
 //  OnTheMap
 //
 //  Created by Benjamin Johnston on 11/4/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class MapViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()

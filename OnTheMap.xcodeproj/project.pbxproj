@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FD25CFA71BEB3AC3005D5C1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD25CFA61BEB3AC3005D5C1A /* AppDelegate.swift */; };
-		FD25CFA91BEB3AC3005D5C1A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD25CFA81BEB3AC3005D5C1A /* FirstViewController.swift */; };
-		FD25CFAB1BEB3AC3005D5C1A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD25CFAA1BEB3AC3005D5C1A /* SecondViewController.swift */; };
+		FD25CFA91BEB3AC3005D5C1A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD25CFA81BEB3AC3005D5C1A /* MapViewController.swift */; };
+		FD25CFAB1BEB3AC3005D5C1A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD25CFAA1BEB3AC3005D5C1A /* TableViewController.swift */; };
 		FD25CFAE1BEB3AC3005D5C1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD25CFAC1BEB3AC3005D5C1A /* Main.storyboard */; };
 		FD25CFB01BEB3AC3005D5C1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD25CFAF1BEB3AC3005D5C1A /* Assets.xcassets */; };
 		FD25CFB31BEB3AC3005D5C1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD25CFB11BEB3AC3005D5C1A /* LaunchScreen.storyboard */; };
@@ -22,8 +22,8 @@
 /* Begin PBXFileReference section */
 		FD25CFA31BEB3AC3005D5C1A /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD25CFA61BEB3AC3005D5C1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FD25CFA81BEB3AC3005D5C1A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		FD25CFAA1BEB3AC3005D5C1A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		FD25CFA81BEB3AC3005D5C1A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		FD25CFAA1BEB3AC3005D5C1A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		FD25CFAD1BEB3AC3005D5C1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD25CFAF1BEB3AC3005D5C1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD25CFB21BEB3AC3005D5C1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -94,8 +94,8 @@
 		FD25CFBC1BEB3AE0005D5C1A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FD25CFA81BEB3AC3005D5C1A /* FirstViewController.swift */,
-				FD25CFAA1BEB3AC3005D5C1A /* SecondViewController.swift */,
+				FD25CFA81BEB3AC3005D5C1A /* MapViewController.swift */,
+				FD25CFAA1BEB3AC3005D5C1A /* TableViewController.swift */,
 				FD25CFC11BEB3C9E005D5C1A /* LoginViewController.swift */,
 			);
 			name = Controller;
@@ -207,12 +207,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD25CFC21BEB3C9E005D5C1A /* LoginViewController.swift in Sources */,
-				FD25CFAB1BEB3AC3005D5C1A /* SecondViewController.swift in Sources */,
+				FD25CFAB1BEB3AC3005D5C1A /* TableViewController.swift in Sources */,
 				FD3B4B761BF2CF7500161944 /* OTMConstants.swift in Sources */,
 				FDCBAD6D1BF19D0800B58DCA /* OTMClient.swift in Sources */,
 				FD25CFA71BEB3AC3005D5C1A /* AppDelegate.swift in Sources */,
 				FDCBAD6F1BF19E4100B58DCA /* OTMConvenience.swift in Sources */,
-				FD25CFA91BEB3AC3005D5C1A /* FirstViewController.swift in Sources */,
+				FD25CFA91BEB3AC3005D5C1A /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
