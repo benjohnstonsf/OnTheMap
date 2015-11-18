@@ -56,7 +56,12 @@ class LoginViewController: UIViewController, UIAlertViewDelegate {
 	func displayError(errorString: String?){
 		dispatch_async(dispatch_get_main_queue(), {
 			if let errorString = errorString {
-				UIAlertView(title: "Oops", message: errorString, delegate: self, cancelButtonTitle: "Okay").show()
+				let alertController = UIAlertController(title: "Oops", message: errorString, preferredStyle: .Alert)
+				let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+					alertController.dismissViewControllerAnimated(true, completion: nil)
+				}
+				alertController.addAction(OKAction)
+				self.presentViewController(alertController, animated: true, completion: nil)
 			}
 		})
 	}
