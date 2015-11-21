@@ -13,15 +13,20 @@ extension OTMClient {
 	
 	func udacityCreateSession(authDetails: (email: String?, password: String?), callBack: (success: Bool, errorString: String?) -> Void) {
 		
-
+		/* GUARD: Check both login fields aren't blank */
+		guard let email = authDetails.email, password = authDetails.password where !email.isEmpty && !password.isEmpty else {
+			callBack(success: false, errorString: "Missing credentials")
+			return
+		}
+		
 		let jsonBody : [String:AnyObject] = [
 			"udacity": [
-				"username": authDetails.email!,
-				"password": authDetails.password!,
+				"username": email,
+				"password": password,
 			]
 		]
 		
-		taskForPOSTMethod("session", jsonBody: jsonBody) { (result, error) in
+		taskForPOSTMethod("session", jsonBody: jsonBody) { (result, resultDictionary, error) in
 						
 			/* GUARD: Was there an error? */
 			guard (error == nil) else {
@@ -29,18 +34,15 @@ extension OTMClient {
 				return
 			}
 			
-			if let result = result as? [String: AnyObject] {
-				
-				/* GUARD: Was there a session key */
-				guard let session = result["session"] where result["session"] != nil else {
-					callBack(success: false, errorString: result["error"] as? String)
-					return
-				}
-				
-				if let session = session as? [String: AnyObject] {
-					self.sessionID = session["id"] as? String
-					callBack(success: true, errorString: nil)
-				}
+			/* GUARD: Was there a session key */
+			guard let session = resultDictionary!["session"] where resultDictionary!["session"] != nil else {
+				callBack(success: false, errorString: resultDictionary!["error"] as? String)
+				return
+			}
+			
+			if let session = session as? [String: AnyObject] {
+				self.sessionID = session["id"] as? String
+				callBack(success: true, errorString: nil)
 			}
 		}
 	}

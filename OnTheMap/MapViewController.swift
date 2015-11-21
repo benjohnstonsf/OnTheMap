@@ -24,7 +24,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 		
 		// We will create an MKPointAnnotation for each dictionary in "locations". The
 		// point annotations will be stored in this array, and then provided to the map view.
-		var annotations = [MKPointAnnotation]()
+		var annotations = [StudentLocation]()
 		
 		// The "locations" array is loaded with the sample data below. We are using the dictionaries
 		// to create map annotations. This would be more stylish if the dictionaries were being
@@ -45,7 +45,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 			let mediaURL = dictionary["mediaURL"] as! String
 			
 			// Here we create the annotation and set its coordiate, title, and subtitle properties
-			let annotation = MKPointAnnotation()
+			let annotation = StudentLocation()
 			annotation.coordinate = coordinate
 			annotation.title = "\(first) \(last)"
 			annotation.subtitle = mediaURL
@@ -73,7 +73,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 		if pinView == nil {
 			pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
 			pinView!.canShowCallout = true
-			pinView!.pinColor = .Red
+			pinView!.pinTintColor = UIColor.redColor()
 			pinView!.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
 		}
 		else {

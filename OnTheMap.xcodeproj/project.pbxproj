@@ -17,6 +17,7 @@
 		FD3B4B761BF2CF7500161944 /* OTMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3B4B751BF2CF7500161944 /* OTMConstants.swift */; };
 		FDCBAD6D1BF19D0800B58DCA /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBAD6C1BF19D0800B58DCA /* OTMClient.swift */; };
 		FDCBAD6F1BF19E4100B58DCA /* OTMConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBAD6E1BF19E4100B58DCA /* OTMConvenience.swift */; };
+		FDE4E6B31BFDAF7300EAAB20 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE4E6B21BFDAF7300EAAB20 /* StudentLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FD3B4B751BF2CF7500161944 /* OTMConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConstants.swift; sourceTree = "<group>"; };
 		FDCBAD6C1BF19D0800B58DCA /* OTMClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
 		FDCBAD6E1BF19E4100B58DCA /* OTMConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConvenience.swift; sourceTree = "<group>"; };
+		FDE4E6B21BFDAF7300EAAB20 /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				FDD7AB191BEBCE9F009AE60A /* Clients */,
+				FDE4E6B21BFDAF7300EAAB20 /* StudentLocation.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDE4E6B31BFDAF7300EAAB20 /* StudentLocation.swift in Sources */,
 				FD25CFC21BEB3C9E005D5C1A /* LoginViewController.swift in Sources */,
 				FD25CFAB1BEB3AC3005D5C1A /* TableViewController.swift in Sources */,
 				FD3B4B761BF2CF7500161944 /* OTMConstants.swift in Sources */,
