@@ -46,6 +46,17 @@ class LoginViewController: UIViewController, UIAlertViewDelegate {
 	
 	func completeLogin() {
 		dispatch_async(dispatch_get_main_queue(), {
+			
+//			ParseClient.sharedInstance.getStudentLocations() { (success, errorString) in
+//				guard success else {
+//					// Failure:  Display the error message returned from the authentication routine
+//					dispatch_async(dispatch_get_main_queue(), {
+//						self.displayError(errorString)
+//					})
+//					return
+//				}
+//			}
+			
 			let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MapNavigationController")
 			self.presentViewController(controller, animated: true, completion: nil)
 		})
