@@ -37,7 +37,7 @@ class LoginViewController: UIViewController, UIAlertViewDelegate {
 			if success {
 				self.completeLogin()
 			} else {
-				self.displayError(errorString)
+				ViewHelper.sharedInstance.displayError(self, errorString: errorString)
 			}
 		}
 	}
@@ -45,37 +45,11 @@ class LoginViewController: UIViewController, UIAlertViewDelegate {
 	// MARK: LoginViewController
 	
 	func completeLogin() {
-		dispatch_async(dispatch_get_main_queue(), {
-			
-//			ParseClient.sharedInstance.getStudentLocations() { (success, errorString) in
-//				guard success else {
-//					// Failure:  Display the error message returned from the authentication routine
-//					dispatch_async(dispatch_get_main_queue(), {
-//						self.displayError(errorString)
-//					})
-//					return
-//				}
-//			}
-			
+		dispatch_async(dispatch_get_main_queue(), {			
 			let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MapNavigationController")
 			self.presentViewController(controller, animated: true, completion: nil)
 		})
-	}
-	
-    // MARK: - Modify UI
-	
-	func displayError(errorString: String?){
-		dispatch_async(dispatch_get_main_queue(), {
-			if let errorString = errorString {
-				let alertController = UIAlertController(title: "Oops", message: errorString, preferredStyle: .Alert)
-				let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-					alertController.dismissViewControllerAnimated(true, completion: nil)
-				}
-				alertController.addAction(OKAction)
-				self.presentViewController(alertController, animated: true, completion: nil)
-			}
-		})
-	}
+	}	
 	
 	/*
 	// MARK: - Navigation

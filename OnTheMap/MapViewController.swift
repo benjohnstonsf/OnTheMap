@@ -21,7 +21,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 			if success {
 				self.mapView.addAnnotations( ParseClient.sharedInstance.studentAnnotations() )
 			} else {
-				print(error)
+				ViewHelper.sharedInstance.displayError(self, errorString: error)
 			}
 		}
 
