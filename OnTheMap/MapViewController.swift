@@ -33,6 +33,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 	func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
 		
 		let reuseId = "pin"
+		print("in first delegate method")
 		
 		var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
 		
@@ -53,6 +54,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 	// This delegate method is implemented to respond to taps. It opens the system browser
 	// to the URL specified in the annotationViews subtitle property.
 	func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+		print("in mapView, annotationView: \(view)")
 		if control == view.rightCalloutAccessoryView {
 			let app = UIApplication.sharedApplication()
 			if let toOpen = view.annotation?.subtitle! {
