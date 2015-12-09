@@ -25,8 +25,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
 	}
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		print("ParseClient.sharedInstance.students: \(ParseClient.sharedInstance.students)")
-		
 		let CellReuseId = "StudentCell"
 		let student = ParseClient.sharedInstance.students[indexPath.row]
 		let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseId) as UITableViewCell!
@@ -40,6 +38,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
 	}
 	
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		let cell = ParseClient.sharedInstance.students[indexPath.row]
+
+		let app = UIApplication.sharedApplication()
+		if let toOpen = cell.annotation.subtitle {
+			app.openURL(NSURL(string: toOpen)!)
+		}
 	
 	}
 	
