@@ -21,6 +21,10 @@ class LoginViewController: UIViewController, UIAlertViewDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		// 		
+		emailField.backgroundColor = UIColor.whiteColor()
+		passwordField.backgroundColor = UIColor.whiteColor()
+		
 		// Do any additional setup after loading the view.
 	}
 	

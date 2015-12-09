@@ -38,7 +38,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="fgb-G5-w2x">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Epx-dV-IXa"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Epx-dV-IXa">
+                            <connections>
+                                <action selector="logout:" destination="9pv-A4-QxB" id="nc4-fk-Bf3"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="OOn-d4-MJt"/>
                             <barButtonItem image="pin" id="zbd-pk-4Qo"/>
@@ -112,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="1562" y="360"/>
         </scene>
-        <!--Login-->
+        <!--Login View Controller-->
         <scene sceneID="u8K-N8-d52">
             <objects>
-                <viewController title="Login" id="815-Jo-dWm" customClass="LoginViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewIdentifier" id="815-Jo-dWm" customClass="LoginViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MWV-x9-KlO"/>
                         <viewControllerLayoutGuide type="bottom" id="gfQ-Ck-iGS"/>
@@ -127,6 +131,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w38-RO-E2T">
                                 <rect key="frame" x="200" y="65" width="200" height="30"/>
                                 <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="UcK-Is-auT"/>
                                     <constraint firstAttribute="width" constant="200" id="VIF-aQ-1Qa"/>
@@ -137,6 +142,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ej-8H-T9G">
                                 <rect key="frame" x="200" y="117" width="200" height="30"/>
                                 <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="HTI-Re-CNh"/>
                                     <constraint firstAttribute="width" constant="200" id="L9w-5p-Y1c"/>
