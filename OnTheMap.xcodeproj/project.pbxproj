@@ -17,6 +17,7 @@
 		FD25CFC21BEB3C9E005D5C1A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD25CFC11BEB3C9E005D5C1A /* LoginViewController.swift */; };
 		FD3B4B761BF2CF7500161944 /* OTMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3B4B751BF2CF7500161944 /* OTMConstants.swift */; };
 		FD47FEB61C06F34200BC8F6B /* ParseConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47FEB51C06F34200BC8F6B /* ParseConvenience.swift */; };
+		FDB837871C20053200E385DF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB837861C20053200E385DF /* PostViewController.swift */; };
 		FDCBAD6D1BF19D0800B58DCA /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBAD6C1BF19D0800B58DCA /* OTMClient.swift */; };
 		FDCBAD6F1BF19E4100B58DCA /* OTMConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCBAD6E1BF19E4100B58DCA /* OTMConvenience.swift */; };
 		FDE4E6B31BFDAF7300EAAB20 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE4E6B21BFDAF7300EAAB20 /* StudentLocation.swift */; };
@@ -37,6 +38,7 @@
 		FD25CFC11BEB3C9E005D5C1A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD3B4B751BF2CF7500161944 /* OTMConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConstants.swift; sourceTree = "<group>"; };
 		FD47FEB51C06F34200BC8F6B /* ParseConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConvenience.swift; sourceTree = "<group>"; };
+		FDB837861C20053200E385DF /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		FDCBAD6C1BF19D0800B58DCA /* OTMClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
 		FDCBAD6E1BF19E4100B58DCA /* OTMConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConvenience.swift; sourceTree = "<group>"; };
 		FDE4E6B21BFDAF7300EAAB20 /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				FD25CFA81BEB3AC3005D5C1A /* MapViewController.swift */,
 				FD25CFAA1BEB3AC3005D5C1A /* TableViewController.swift */,
 				FD25CFC11BEB3C9E005D5C1A /* LoginViewController.swift */,
+				FDB837861C20053200E385DF /* PostViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				FD47FEB61C06F34200BC8F6B /* ParseConvenience.swift in Sources */,
 				FDEA20371C012E3500859A38 /* ParseClient.swift in Sources */,
 				FDE4E6B31BFDAF7300EAAB20 /* StudentLocation.swift in Sources */,
+				FDB837871C20053200E385DF /* PostViewController.swift in Sources */,
 				FD25CFC21BEB3C9E005D5C1A /* LoginViewController.swift in Sources */,
 				FDEA20391C012F1100859A38 /* ParseConstants.swift in Sources */,
 				FD25CFAB1BEB3AC3005D5C1A /* TableViewController.swift in Sources */,

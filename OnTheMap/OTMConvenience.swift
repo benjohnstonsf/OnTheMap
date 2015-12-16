@@ -47,6 +47,22 @@ extension OTMClient {
 		}
 	}
 	
+	func udacityDestroySession(viewController: UIViewController){
+		OTMClient.sharedInstance.taskForDELETEMethod("session") { (result, resultDictionary, error) in
+			if result {
+				dispatch_async(dispatch_get_main_queue(), {
+					let logoutController = viewController.presentingViewController as? LoginViewController
+					logoutController?.passwordField.text = ""
+					let controller = viewController.storyboard?.instantiateViewControllerWithIdentifier("LoginViewIdentifier") as? LoginViewController
+					viewController.navigationController?.pushViewController(controller!, animated: true)
+					viewController.presentingViewController?.dismissViewControllerAnimated(false, completion: nil )
+				})
+			} else {
+				ViewHelper.sharedInstance.displayError(viewController, errorString: error?.localizedDescription)
+			}
+		}
+	}
+	
 
 }
 

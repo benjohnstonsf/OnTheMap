@@ -14,6 +14,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 	// MARK: - Properties
 	
 	@IBOutlet weak var mapView: MKMapView!
+	@IBOutlet weak var newPostButton: UIBarButtonItem!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -61,19 +62,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 	}
 	
 	@IBAction func logout(sender: AnyObject) {
-		OTMClient.sharedInstance.taskForDELETEMethod("session") { (result, resultDictionary, error) in
-			if result {
-				dispatch_async(dispatch_get_main_queue(), {
-					let logoutController = self.presentingViewController as? LoginViewController
-					logoutController?.passwordField.text = ""
-					let controller = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewIdentifier") as? LoginViewController
-					self.navigationController?.pushViewController(controller!, animated: true)
-					self.presentingViewController?.dismissViewControllerAnimated(false, completion: nil )
-				})
-			} else {
-				ViewHelper.sharedInstance.displayError(self, errorString: error?.localizedDescription)
-			}
-		}
+		OTMClient.sharedInstance.udacityDestroySession(self)
 	}
 	
 }

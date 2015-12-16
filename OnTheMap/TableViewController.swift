@@ -48,5 +48,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
 	}
 	
 	
+	@IBAction func logout(sender: AnyObject) {
+		OTMClient.sharedInstance.udacityDestroySession(self)
+	}
+	
+	
 }
 
