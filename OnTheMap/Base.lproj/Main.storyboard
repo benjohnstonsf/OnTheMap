@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="815-Jo-dWm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="815-Jo-dWm">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -81,23 +81,43 @@
                                             <constraint firstAttribute="height" constant="84" id="suG-sk-c1G"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a URL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NGS-1W-isG">
+                                        <rect key="frame" x="8" y="64" width="584" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="NGS-1W-isG" firstAttribute="top" secondItem="SUl-oz-Xnw" secondAttribute="top" constant="64" id="00i-2i-8Z2"/>
+                                    <constraint firstItem="NGS-1W-isG" firstAttribute="leading" secondItem="SUl-oz-Xnw" secondAttribute="leading" constant="8" id="D9r-cm-n7a"/>
                                     <constraint firstItem="niW-af-sAF" firstAttribute="top" secondItem="SUl-oz-Xnw" secondAttribute="top" constant="37" id="TDv-0G-DEl"/>
                                     <constraint firstItem="niW-af-sAF" firstAttribute="centerX" secondItem="SUl-oz-Xnw" secondAttribute="centerX" id="U0D-Bi-0o1"/>
+                                    <constraint firstAttribute="trailing" secondItem="NGS-1W-isG" secondAttribute="trailing" constant="8" id="WEJ-8l-QJ5"/>
                                     <constraint firstAttribute="height" constant="157" id="Wdz-lA-o6o"/>
+                                    <constraint firstItem="NGS-1W-isG" firstAttribute="centerX" secondItem="SUl-oz-Xnw" secondAttribute="centerX" id="m8C-4e-7Ee"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8b-cB-kkq">
                                 <rect key="frame" x="0.0" y="443" width="600" height="157"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zk-ro-e35">
+                                        <rect key="frame" x="245" y="64" width="111" height="30"/>
+                                        <state key="normal" title="Find on the Map"/>
+                                        <connections>
+                                            <action selector="findLocationButtonPressed:" destination="fkz-Ho-96N" eventType="touchUpInside" id="X03-G8-0z0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="157" id="Ddb-UD-9p9"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="157" id="HQA-9T-IQR"/>
+                                    <constraint firstAttribute="bottom" secondItem="9zk-ro-e35" secondAttribute="bottom" constant="63" id="Xzd-V3-S6n"/>
+                                    <constraint firstItem="9zk-ro-e35" firstAttribute="centerX" secondItem="w8b-cB-kkq" secondAttribute="centerX" id="bYK-I8-F1E"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Location Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAf-PN-IiR">
@@ -105,15 +125,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eqJ-lX-ffS">
+                                <rect key="frame" x="0.0" y="221" width="600" height="379"/>
+                            </mapView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbv-Wm-Jx5">
+                                <rect key="frame" x="275.5" y="507" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitLocationButtonPressed:" destination="fkz-Ho-96N" eventType="touchUpInside" id="naw-Ca-uDK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="SUl-oz-Xnw" secondAttribute="trailing" id="0N1-Cz-VnV"/>
+                            <constraint firstItem="eqJ-lX-ffS" firstAttribute="top" secondItem="SUl-oz-Xnw" secondAttribute="bottom" id="4fx-WQ-HnH"/>
                             <constraint firstItem="ZAf-PN-IiR" firstAttribute="leading" secondItem="RUD-w0-Hxe" secondAttribute="leading" id="HGc-kw-eGO"/>
                             <constraint firstAttribute="trailing" secondItem="w8b-cB-kkq" secondAttribute="trailing" id="UPO-GV-HQ3"/>
                             <constraint firstItem="w8b-cB-kkq" firstAttribute="leading" secondItem="RUD-w0-Hxe" secondAttribute="leading" id="XWY-UR-A5l"/>
                             <constraint firstItem="SUl-oz-Xnw" firstAttribute="leading" secondItem="RUD-w0-Hxe" secondAttribute="leading" id="Xwc-G0-5GB"/>
+                            <constraint firstItem="yre-P0-RQA" firstAttribute="top" secondItem="Dbv-Wm-Jx5" secondAttribute="bottom" constant="63" id="aZ0-Eo-ccg"/>
+                            <constraint firstItem="eqJ-lX-ffS" firstAttribute="leading" secondItem="RUD-w0-Hxe" secondAttribute="leading" id="arX-m1-5F6"/>
+                            <constraint firstAttribute="trailing" secondItem="eqJ-lX-ffS" secondAttribute="trailing" id="atS-vN-Zn0"/>
+                            <constraint firstItem="Dbv-Wm-Jx5" firstAttribute="centerX" secondItem="RUD-w0-Hxe" secondAttribute="centerX" id="cSg-XW-8Qm"/>
                             <constraint firstItem="SUl-oz-Xnw" firstAttribute="top" secondItem="vPI-nf-cq6" secondAttribute="bottom" id="eSD-VN-VpP"/>
+                            <constraint firstItem="yre-P0-RQA" firstAttribute="top" secondItem="eqJ-lX-ffS" secondAttribute="bottom" id="fLv-Pq-fNy"/>
                             <constraint firstItem="ZAf-PN-IiR" firstAttribute="top" secondItem="SUl-oz-Xnw" secondAttribute="bottom" id="kNy-nz-37o"/>
                             <constraint firstItem="w8b-cB-kkq" firstAttribute="top" secondItem="ZAf-PN-IiR" secondAttribute="bottom" id="pwk-2G-s3z"/>
                             <constraint firstItem="yre-P0-RQA" firstAttribute="top" secondItem="w8b-cB-kkq" secondAttribute="bottom" id="q6o-Eh-SGw"/>
@@ -127,6 +163,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="findLocationButton" destination="9zk-ro-e35" id="YpA-eN-hzp"/>
+                        <outlet property="linkInput" destination="NGS-1W-isG" id="Ris-ms-Ogk"/>
+                        <outlet property="locationInput" destination="ZAf-PN-IiR" id="xId-12-NIn"/>
+                        <outlet property="mapView" destination="eqJ-lX-ffS" id="jkQ-XG-tnv"/>
+                        <outlet property="submitButton" destination="Dbv-Wm-Jx5" id="QIi-we-Xbr"/>
+                        <outlet property="titleMessage" destination="niW-af-sAF" id="PsD-zy-Rvr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mk8-Lx-0iA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -345,6 +389,6 @@
         <image name="pin" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e6x-eq-XCS"/>
+        <segue reference="nms-xD-k0e"/>
     </inferredMetricsTieBreakers>
 </document>

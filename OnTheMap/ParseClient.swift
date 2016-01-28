@@ -34,11 +34,11 @@ class ParseClient {
 			self.parseLocationData(data!) { success, error in
 				completionHandler(success: true, errorString: nil)
 			}
-
 		}
 		task.resume()
-		
 	}
+	
+//	func postStudentLocation(location)
 	
 	func parseLocationData(data: NSData, completionHandler: (success: Bool, errorString: String?) -> Void) {
 
