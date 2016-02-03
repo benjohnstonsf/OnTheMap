@@ -64,6 +64,7 @@ class ParseClient {
 		
 		
 		let session = NSURLSession.sharedSession()
+//		test hound
 		
 		let task = session.dataTaskWithRequest(request) { data, response, error in
 			do {
