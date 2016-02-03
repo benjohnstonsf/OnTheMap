@@ -52,7 +52,7 @@ class ParseClient {
 			"mediaURL": mediaURL,
 			"longitude": longitude,
 			"latitude": latitude,
-//			"firstName": "Ben",
+			"firstName": "Ben",
 			"lastName": "Johnston"
 		]
 		
@@ -64,20 +64,19 @@ class ParseClient {
 		
 		
 		let session = NSURLSession.sharedSession()
-//		test hound
 		
 		let task = session.dataTaskWithRequest(request) { data, response, error in
 			do {
 				let newParsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? [String: AnyObject]
-				print("newParsedResult: \(newParsedResult)")
 				if let parsedError = newParsedResult!["error"] { // Handle error…
-					print("error: \(parsedError)")
+					completionHandler(success: false, errorString: parsedError as? String)
+				} else {
+					print("newParsedResult: \(newParsedResult)")
+					completionHandler(success: true, errorString: nil)
 				}
 			} catch {
-				print("could not parse data")
-				
-			}
-			
+				print("Could not parse data: \(data)")
+			}			
 		}
 		task.resume()
 		

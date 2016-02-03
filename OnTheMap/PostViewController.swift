@@ -62,14 +62,14 @@ class PostViewController: UIViewController {
 		ParseClient.sharedInstance.postStudentLocation(location.coordinate.latitude, longitude: location.coordinate.longitude, mapString: locationInput.text!, mediaURL: linkInput.text!) {
 			success, error in
 			guard error == nil else {
-				ViewHelper.sharedInstance.displayError(self, errorString: error.debugDescription)
+				ViewHelper.sharedInstance.displayError(self, errorString: error)
 				return
 			}
-			
-			
+			dispatch_async(dispatch_get_main_queue(), {
+				let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MapNavigationController")
+				self.presentViewController(controller, animated: true, completion: nil)
+			})
 		}
-		print("link submitted")
-
 	}
 	
 	// MARK: - Actions	
@@ -79,14 +79,15 @@ class PostViewController: UIViewController {
 	}
 	
 	@IBAction func findLocationButtonPressed(sender: AnyObject) {
+		locationInput.alpha = 0.9
 		forwardGeocode(locationInput.text!) {
 			location in
 			self.location = location
 			self.mapView.hidden = false
 			self.centerMapOnLocation(self.location!)
 			self.setupLinkView()
-			print(location)
 		}
+		locationInput.alpha = 0.0
 	}
 	
 	@IBAction func submitLocationButtonPressed(sender: AnyObject) {
