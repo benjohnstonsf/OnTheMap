@@ -27,6 +27,9 @@ extension OTMClient {
 		]
 		
 		taskForPOSTMethod("session", jsonBody: jsonBody) { (result, resultDictionary, error) in
+			
+			print("result: \(result)")
+			print("resultDictionary: \(resultDictionary)")
 						
 			/* GUARD: Was there an error? */
 			guard (error == nil) else {
@@ -38,6 +41,16 @@ extension OTMClient {
 			guard let session = resultDictionary!["session"] where resultDictionary!["session"] != nil else {
 				callBack(success: false, errorString: resultDictionary!["error"] as? String)
 				return
+			}
+
+			/* GUARD: Was there an account key */
+			guard let account = resultDictionary!["account"] where resultDictionary!["account"] != nil else {
+				callBack(success: false, errorString: resultDictionary!["error"] as? String)
+				return
+			}
+			
+			if let account = account as? [String: AnyObject] {
+				self.userID = account["key"] as? String
 			}
 			
 			if let session = session as? [String: AnyObject] {

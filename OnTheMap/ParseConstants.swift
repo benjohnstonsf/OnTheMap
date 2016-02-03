@@ -19,6 +19,8 @@ extension ParseClient {
 		// MARK: URLs
 		static let BaseURLSecure : String = "https://api.parse.com/1/classes/StudentLocation"
 		
+		
+		
 	}
 	
 }

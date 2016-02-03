@@ -16,7 +16,7 @@ class OTMClient {
 	
 	/* Authentication state */
 	var sessionID : String? = nil
-	var userID : Int? = nil
+	var userID : String? = nil
 	
 	// MARK: Initializers
 	
