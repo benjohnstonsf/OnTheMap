@@ -20,9 +20,9 @@ class ParseClient {
 	// MARK: GET
 	
 	func getStudentLocations(completionHandler: (success: Bool, errorString: String?) -> ()) {
-		let request = NSMutableURLRequest(URL: NSURL(string: "https://api.parse.com/1/classes/StudentLocation?limit=100&order=-updatedAt")!)
-		request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
-		request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+		let request = NSMutableURLRequest(URL: NSURL(string: Constants.BaseURLSecure + "?limit=100&order=-updatedAt")!)
+		request.addValue(Constants.applicationID, forHTTPHeaderField: "X-Parse-Application-Id")
+		request.addValue(Constants.apiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
 		let session = NSURLSession.sharedSession()
 
 		
@@ -38,7 +38,50 @@ class ParseClient {
 		task.resume()
 	}
 	
-//	func postStudentLocation(location)
+	func postStudentLocation(latitude: Double, longitude: Double, mapString: String, mediaURL: String, completionHandler: (success: Bool, errorString: String?) -> () ) {
+
+		let request = NSMutableURLRequest(URL: NSURL(string: Constants.BaseURLSecure)!)
+		request.HTTPMethod = "POST"
+		request.addValue(Constants.applicationID, forHTTPHeaderField: "X-Parse-Application-Id")
+		request.addValue(Constants.apiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
+		request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+		
+		let mutableParameters: [String: AnyObject] = [
+			"uniqueKey": OTMClient.sharedInstance.userID!,
+			"mapString": mapString,
+			"mediaURL": mediaURL,
+			"longitude": longitude,
+			"latitude": latitude,
+//			"firstName": "Ben",
+			"lastName": "Johnston"
+		]
+		
+		print(mutableParameters)
+		
+		do {
+			request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(mutableParameters, options: .PrettyPrinted)
+		}
+		
+		
+		let session = NSURLSession.sharedSession()
+//		test hound
+		
+		let task = session.dataTaskWithRequest(request) { data, response, error in
+			do {
+				let newParsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? [String: AnyObject]
+				print("newParsedResult: \(newParsedResult)")
+				if let parsedError = newParsedResult!["error"] { // Handle error…
+					print("error: \(parsedError)")
+				}
+			} catch {
+				print("could not parse data")
+				
+			}
+			
+		}
+		task.resume()
+		
+	}
 	
 	func parseLocationData(data: NSData, completionHandler: (success: Bool, errorString: String?) -> Void) {
 

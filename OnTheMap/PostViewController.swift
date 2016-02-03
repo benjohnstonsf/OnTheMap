@@ -21,6 +21,7 @@ class PostViewController: UIViewController {
 	@IBOutlet weak var linkInput: UITextField!
 	
 	var location: CLLocation?
+
 	
 	
 	// MARK: - Helpers
@@ -40,8 +41,6 @@ class PostViewController: UIViewController {
 		}
 	}
 	
-	
-	
 	func setupLinkView() {
 		submitButton.hidden = false
 		titleMessage.hidden = true
@@ -60,8 +59,17 @@ class PostViewController: UIViewController {
 	}
 	
 	func submitNewLocation(location: CLLocation) {
+		ParseClient.sharedInstance.postStudentLocation(location.coordinate.latitude, longitude: location.coordinate.longitude, mapString: locationInput.text!, mediaURL: linkInput.text!) {
+			success, error in
+			guard error == nil else {
+				ViewHelper.sharedInstance.displayError(self, errorString: error.debugDescription)
+				return
+			}
+			
+			
+		}
 		print("link submitted")
-		
+
 	}
 	
 	// MARK: - Actions	
