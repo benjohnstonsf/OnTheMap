@@ -17,6 +17,8 @@ class OTMClient {
 	/* Authentication state */
 	var sessionID : String? = nil
 	var userID : String? = nil
+	var firstName: String? = nil
+	var lastName: String? = nil
 	
 	// MARK: Initializers
 	
@@ -30,15 +32,17 @@ class OTMClient {
 	
 	// MARK: GET
 	
-	func taskForGETMethod(method: String, parameters: [String : AnyObject], completionHandler: (result: Bool, resultDictionary: [String: AnyObject]?, error: NSError?) -> Void) -> NSURLSessionDataTask {
+	func taskForGETMethod(method: String, completionHandler: (result: Bool, resultDictionary: [String: AnyObject]?, error: NSError?) -> Void) -> NSURLSessionDataTask {
 		
 		/* 1. Set the parameters */
-		let mutableParameters = parameters
+
 		
 		/* 2/3. Build the URL and configure the request */
-		let urlString = Constants.BaseURLSecure + method + OTMClient.escapedParameters(mutableParameters)
+		let urlString = Constants.BaseURLSecure + method
 		let url = NSURL(string: urlString)!
 		let request = NSURLRequest(URL: url)
+		
+		print("request: \(request)")
 		
 		/* 4. Make the request */
 		let task = session.dataTaskWithRequest(request) { (data, response, error) in
@@ -97,6 +101,7 @@ class OTMClient {
 		
 		/* 4. Make the request */
 		let task = session.dataTaskWithRequest(request) { (data, response, error) in
+			print("request: \(request)")
 			
 			/* GUARD: Was there an error? */
 			guard (error == nil) else {

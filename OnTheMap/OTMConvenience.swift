@@ -60,6 +60,41 @@ extension OTMClient {
 		}
 	}
 	
+	func udacityGetUserData(callBack: (success: Bool, errorString: String?) -> Void) {
+		
+		guard let userID = self.userID else {
+			callBack(success: false, errorString: "Missing credentials")
+			return
+		}
+		
+		taskForGETMethod("users/\(userID)"){ (result, resultDictionary, error) in
+
+			
+			/* GUARD: Was there an error? */
+			guard (error == nil) else {
+				callBack(success: false, errorString: error!.localizedDescription)
+				return
+			}
+			
+			/* GUARD: Was there a user key */
+			guard let user = resultDictionary!["user"] where resultDictionary!["user"] != nil else {
+				callBack(success: false, errorString: "User info not found")
+				return
+			}
+			
+
+			
+			if let user = user as? [String: AnyObject] {
+				self.firstName = user["first_name"] as? String
+				self.lastName = user["last_name"] as? String
+				callBack(success: true, errorString: nil)
+			}
+			
+
+		}
+		
+	}
+	
 	func udacityDestroySession(viewController: UIViewController){
 		OTMClient.sharedInstance.taskForDELETEMethod("session") { (result, resultDictionary, error) in
 			if result {

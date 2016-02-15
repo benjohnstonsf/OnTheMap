@@ -49,7 +49,14 @@ class LoginViewController: UIViewController, UIAlertViewDelegate {
 	// MARK: LoginViewController
 	
 	func completeLogin() {
-		dispatch_async(dispatch_get_main_queue(), {			
+		dispatch_async(dispatch_get_main_queue(), {
+			OTMClient.sharedInstance.udacityGetUserData(){ (success, errorString) in
+				if !success {
+					ViewHelper.sharedInstance.displayError(self, errorString: errorString)
+				} else {
+					print("firstname: \(OTMClient.sharedInstance.firstName)")
+				}
+			}
 			let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MapNavigationController")
 			self.presentViewController(controller, animated: true, completion: nil)
 		})

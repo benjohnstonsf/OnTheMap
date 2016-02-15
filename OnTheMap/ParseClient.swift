@@ -52,8 +52,8 @@ class ParseClient {
 			"mediaURL": mediaURL,
 			"longitude": longitude,
 			"latitude": latitude,
-			"firstName": "Ben",
-			"lastName": "Johnston"
+			"firstName": OTMClient.sharedInstance.firstName!,
+			"lastName": OTMClient.sharedInstance.lastName!
 		]
 		
 		print(mutableParameters)
