@@ -19,6 +19,7 @@ class PostViewController: UIViewController {
 	@IBOutlet weak var mapView: MKMapView!
 	@IBOutlet weak var submitButton: UIButton!
 	@IBOutlet weak var linkInput: UITextField!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
 	var location: CLLocation?
 
@@ -80,12 +81,14 @@ class PostViewController: UIViewController {
 	
 	@IBAction func findLocationButtonPressed(sender: AnyObject) {
 		locationInput.alpha = 0.9
+		activityIndicator.startAnimating()
 		forwardGeocode(locationInput.text!) {
 			location in
 			self.location = location
 			self.mapView.hidden = false
 			self.centerMapOnLocation(self.location!)
 			self.setupLinkView()
+			self.activityIndicator.stopAnimating()
 		}
 		locationInput.alpha = 0.0
 	}

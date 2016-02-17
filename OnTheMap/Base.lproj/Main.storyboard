@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="815-Jo-dWm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="815-Jo-dWm">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -135,6 +135,9 @@
                                     <action selector="submitLocationButtonPressed:" destination="fkz-Ho-96N" eventType="touchUpInside" id="naw-Ca-uDK"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="swa-eM-Ukx">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -144,12 +147,14 @@
                             <constraint firstAttribute="trailing" secondItem="w8b-cB-kkq" secondAttribute="trailing" id="UPO-GV-HQ3"/>
                             <constraint firstItem="w8b-cB-kkq" firstAttribute="leading" secondItem="RUD-w0-Hxe" secondAttribute="leading" id="XWY-UR-A5l"/>
                             <constraint firstItem="SUl-oz-Xnw" firstAttribute="leading" secondItem="RUD-w0-Hxe" secondAttribute="leading" id="Xwc-G0-5GB"/>
+                            <constraint firstItem="swa-eM-Ukx" firstAttribute="centerY" secondItem="RUD-w0-Hxe" secondAttribute="centerY" id="ZhZ-U8-knN"/>
                             <constraint firstItem="yre-P0-RQA" firstAttribute="top" secondItem="Dbv-Wm-Jx5" secondAttribute="bottom" constant="63" id="aZ0-Eo-ccg"/>
                             <constraint firstItem="eqJ-lX-ffS" firstAttribute="leading" secondItem="RUD-w0-Hxe" secondAttribute="leading" id="arX-m1-5F6"/>
                             <constraint firstAttribute="trailing" secondItem="eqJ-lX-ffS" secondAttribute="trailing" id="atS-vN-Zn0"/>
                             <constraint firstItem="Dbv-Wm-Jx5" firstAttribute="centerX" secondItem="RUD-w0-Hxe" secondAttribute="centerX" id="cSg-XW-8Qm"/>
                             <constraint firstItem="SUl-oz-Xnw" firstAttribute="top" secondItem="vPI-nf-cq6" secondAttribute="bottom" id="eSD-VN-VpP"/>
                             <constraint firstItem="yre-P0-RQA" firstAttribute="top" secondItem="eqJ-lX-ffS" secondAttribute="bottom" id="fLv-Pq-fNy"/>
+                            <constraint firstItem="swa-eM-Ukx" firstAttribute="centerX" secondItem="RUD-w0-Hxe" secondAttribute="centerX" id="gxb-gF-vBJ"/>
                             <constraint firstItem="ZAf-PN-IiR" firstAttribute="top" secondItem="SUl-oz-Xnw" secondAttribute="bottom" id="kNy-nz-37o"/>
                             <constraint firstItem="w8b-cB-kkq" firstAttribute="top" secondItem="ZAf-PN-IiR" secondAttribute="bottom" id="pwk-2G-s3z"/>
                             <constraint firstItem="yre-P0-RQA" firstAttribute="top" secondItem="w8b-cB-kkq" secondAttribute="bottom" id="q6o-Eh-SGw"/>
@@ -164,6 +169,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="swa-eM-Ukx" id="Q4Z-Oo-AsV"/>
                         <outlet property="findLocationButton" destination="9zk-ro-e35" id="YpA-eN-hzp"/>
                         <outlet property="linkInput" destination="NGS-1W-isG" id="Ris-ms-Ogk"/>
                         <outlet property="locationInput" destination="ZAf-PN-IiR" id="xId-12-NIn"/>
