@@ -51,6 +51,15 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
 	@IBAction func logout(sender: AnyObject) {
 		OTMClient.sharedInstance.udacityDestroySession(self)
 	}
+	@IBAction func refreshTableView(sender: AnyObject) {
+		ParseClient.sharedInstance.getStudentLocations{ success, error in
+			guard error != nil else {
+				ViewHelper.sharedInstance.displayError(self, errorString: error)
+				return
+			}
+			self.studentTableView.reloadData()
+		}
+	}
 	
 	
 }

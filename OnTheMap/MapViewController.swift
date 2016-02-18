@@ -18,15 +18,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		ParseClient.sharedInstance.getStudentLocations(){success, error in
-			if success {
-				self.mapView.addAnnotations( StudentInformation.sharedInstance.studentAnnotations() )
-			} else {
-				ViewHelper.sharedInstance.displayError(self, errorString: error)
-			}
-		}
-
-		
+		loadStudentData()		
 	}
 	
 	// MARK: - MKMapViewDelegate
@@ -61,6 +53,19 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 		}
 	}
 	
+	func loadStudentData() {
+		ParseClient.sharedInstance.getStudentLocations(){success, error in
+			if success {
+				self.mapView.addAnnotations( StudentInformation.sharedInstance.studentAnnotations() )
+			} else {
+				ViewHelper.sharedInstance.displayError(self, errorString: error)
+			}
+		}
+	}
+	
+	@IBAction func refreshTableView(sender: AnyObject) {
+		loadStudentData()
+	}
 	@IBAction func logout(sender: AnyObject) {
 		OTMClient.sharedInstance.udacityDestroySession(self)
 	}

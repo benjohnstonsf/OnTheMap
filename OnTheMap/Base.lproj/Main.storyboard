@@ -42,7 +42,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="refresh" id="OOn-d4-MJt"/>
+                            <barButtonItem systemItem="refresh" id="OOn-d4-MJt">
+                                <connections>
+                                    <action selector="refreshTableView:" destination="9pv-A4-QxB" id="ScY-w1-NpA"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="pin" id="zbd-pk-4Qo">
                                 <connections>
                                     <segue destination="kdu-dI-7HV" kind="presentation" id="e6x-eq-XCS"/>
@@ -230,7 +234,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="refresh" id="cm4-0v-r2J"/>
+                            <barButtonItem systemItem="refresh" id="cm4-0v-r2J">
+                                <connections>
+                                    <action selector="refreshTableView:" destination="8rJ-Kc-sve" id="NIP-lU-ZD1"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="pin" id="1Fa-72-2rx">
                                 <connections>
                                     <segue destination="kdu-dI-7HV" kind="presentation" id="nms-xD-k0e"/>
@@ -395,6 +403,6 @@
         <image name="pin" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nms-xD-k0e"/>
+        <segue reference="e6x-eq-XCS"/>
     </inferredMetricsTieBreakers>
 </document>

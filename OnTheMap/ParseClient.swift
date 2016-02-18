@@ -25,10 +25,33 @@ class ParseClient {
 		
 		let task = session.dataTaskWithRequest(request) { data, response, error in
 			guard error == nil else {
-				completionHandler(success: false, errorString: error!.description)
+				completionHandler(success: false, errorString: error?.localizedDescription)
 				return
 			}
-			self.parseLocationData(data!) { success, error in
+			
+			/* GUARD: Was there any data returned? */
+			guard let data = data else {
+				print("No data was returned by the request!")
+				return
+			}
+			
+			/* GUARD: Did we get a successful 2XX response? */
+			guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+				if let response = response as? NSHTTPURLResponse {
+					print("Your request returned an invalid response! Status code: \(response.statusCode)!")
+				} else if let response = response {
+					print("Your request returned an invalid response! Response: \(response)!")
+				} else {
+					print("Your request returned an invalid response!")
+				}
+				self.parseLocationData(data) { success, error in
+					completionHandler(success: false, errorString: "Server error")
+				}
+				return
+			}
+			
+			
+			self.parseLocationData(data) { success, error in
 				completionHandler(success: true, errorString: nil)
 			}
 		}
@@ -53,8 +76,6 @@ class ParseClient {
 			"lastName": OTMClient.sharedInstance.lastName!
 		]
 		
-		print(mutableParameters)
-		
 		do {
 			request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(mutableParameters, options: .PrettyPrinted)
 		}
@@ -76,7 +97,6 @@ class ParseClient {
 				if let parsedError = newParsedResult!["error"] { // Handle error…
 					completionHandler(success: false, errorString: parsedError as? String)
 				} else {
-					print("newParsedResult: \(newParsedResult)")
 					completionHandler(success: true, errorString: nil)
 				}
 			} catch {
