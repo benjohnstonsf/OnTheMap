@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController, UITextFieldDelegate {
 	
 	// MARK: - Properties
 	@IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -22,6 +22,11 @@ class PostViewController: UIViewController {
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
 	var location: CLLocation?
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		locationInput.delegate = self
+	}
 
 	
 	
@@ -32,12 +37,12 @@ class PostViewController: UIViewController {
 		geoCode.geocodeAddressString(input) {
 			placemarks, error in
 			guard error == nil else {
-				ViewHelper.sharedInstance.displayError(self, errorString: error.debugDescription)
+				ViewHelper.sharedInstance.displayError(self, errorString: error?.localizedDescription)
+				self.activityIndicator.stopAnimating()
 				return
 			}
 			if let firstPlacemarkLocation = placemarks?[0].location {
 				setLocation(firstPlacemarkLocation)
-
 			}
 		}
 	}
@@ -73,14 +78,7 @@ class PostViewController: UIViewController {
 		}
 	}
 	
-	// MARK: - Actions	
-
-	@IBAction func cancelPost(sender: AnyObject) {
-		self.dismissViewControllerAnimated(true, completion: nil)
-	}
-	
-	@IBAction func findLocationButtonPressed(sender: AnyObject) {
-		locationInput.alpha = 0.9
+	func initiateGeocoding() {
 		activityIndicator.startAnimating()
 		forwardGeocode(locationInput.text!) {
 			location in
@@ -90,7 +88,23 @@ class PostViewController: UIViewController {
 			self.setupLinkView()
 			self.activityIndicator.stopAnimating()
 		}
-		locationInput.alpha = 0.0
+	}
+		
+	
+	// MARK: - Actions
+	
+	func textFieldShouldReturn(textField: UITextField) -> Bool {
+		self.view.endEditing(true)
+		initiateGeocoding()
+		return false
+	}
+
+	@IBAction func cancelPost(sender: AnyObject) {
+		self.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+	@IBAction func findLocationButtonPressed(sender: AnyObject) {
+		initiateGeocoding()
 	}
 	
 	@IBAction func submitLocationButtonPressed(sender: AnyObject) {

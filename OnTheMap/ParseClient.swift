@@ -12,10 +12,7 @@ class ParseClient {
 	
 	// MARK: Shared Instance
 	
-	static let sharedInstance = ParseClient()
-	
-	var students: [StudentLocation] = []
-	
+	static let sharedInstance = ParseClient()	
 	
 	// MARK: GET
 	
@@ -66,6 +63,14 @@ class ParseClient {
 		let session = NSURLSession.sharedSession()
 		
 		let task = session.dataTaskWithRequest(request) { data, response, error in
+			
+			/* GUARD: Was there an error? */
+			guard (error == nil) else {
+				print("There was an error with your request: \(error)")
+				completionHandler(success: false, errorString: error?.localizedDescription)
+				return
+			}
+			
 			do {
 				let newParsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? [String: AnyObject]
 				if let parsedError = newParsedResult!["error"] { // Handle error…
@@ -75,7 +80,8 @@ class ParseClient {
 					completionHandler(success: true, errorString: nil)
 				}
 			} catch {
-				print("Could not parse data: \(data)")
+				let errorInfo = "There was an error posting your info, please try again"
+				completionHandler(success: false, errorString: errorInfo)
 			}			
 		}
 		task.resume()
@@ -85,7 +91,7 @@ class ParseClient {
 	func parseLocationData(data: NSData, completionHandler: (success: Bool, errorString: String?) -> Void) {
 
 		// Clear out the array
-		students.removeAll()
+		StudentInformation.sharedInstance.students.removeAll()
 		
 		// Get the users JSON data
 		do {
@@ -93,7 +99,7 @@ class ParseClient {
 
 			if let studentsData = usersData!["results"] as? [NSDictionary] {
 				for student in studentsData {
-					students.append(StudentLocation(data: student))
+					StudentInformation.sharedInstance.students.append(StudentLocation(data: student))
 				}
 			} else {
 				// Error getting the dictionary from JSON data

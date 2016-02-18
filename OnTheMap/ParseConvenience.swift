@@ -9,15 +9,15 @@
 import Foundation
 import MapKit
 
-extension ParseClient {
-	
-	func studentAnnotations() -> [MKAnnotation] {
-		let locations = ParseClient.sharedInstance.students
-		var annotations = [MKAnnotation]()
-		for student in locations {
-			annotations.append(student.annotation)
-		}
-		return annotations
-	}
-	
-}
+//extension ParseClient {
+//	
+//	func studentAnnotations() -> [MKAnnotation] {
+//		let locations = StudentInformation.sharedInstance.students
+//		var annotations = [MKAnnotation]()
+//		for student in locations {
+//			annotations.append(student.annotation)
+//		}
+//		return annotations
+//	}
+//	
+//}

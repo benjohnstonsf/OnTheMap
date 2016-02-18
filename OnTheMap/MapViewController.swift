@@ -20,7 +20,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 		super.viewDidLoad()
 		ParseClient.sharedInstance.getStudentLocations(){success, error in
 			if success {
-				self.mapView.addAnnotations( ParseClient.sharedInstance.studentAnnotations() )
+				self.mapView.addAnnotations( StudentInformation.sharedInstance.studentAnnotations() )
 			} else {
 				ViewHelper.sharedInstance.displayError(self, errorString: error)
 			}

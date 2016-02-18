@@ -89,15 +89,24 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbv-Wm-Jx5">
+                                        <rect key="frame" x="276" y="129" width="49" height="30"/>
+                                        <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="submitLocationButtonPressed:" destination="fkz-Ho-96N" eventType="touchUpInside" id="naw-Ca-uDK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="NGS-1W-isG" firstAttribute="top" secondItem="SUl-oz-Xnw" secondAttribute="top" constant="64" id="00i-2i-8Z2"/>
                                     <constraint firstItem="NGS-1W-isG" firstAttribute="leading" secondItem="SUl-oz-Xnw" secondAttribute="leading" constant="8" id="D9r-cm-n7a"/>
+                                    <constraint firstItem="Dbv-Wm-Jx5" firstAttribute="centerX" secondItem="SUl-oz-Xnw" secondAttribute="centerX" id="JQk-lT-Mdv"/>
                                     <constraint firstItem="niW-af-sAF" firstAttribute="top" secondItem="SUl-oz-Xnw" secondAttribute="top" constant="37" id="TDv-0G-DEl"/>
                                     <constraint firstItem="niW-af-sAF" firstAttribute="centerX" secondItem="SUl-oz-Xnw" secondAttribute="centerX" id="U0D-Bi-0o1"/>
                                     <constraint firstAttribute="trailing" secondItem="NGS-1W-isG" secondAttribute="trailing" constant="8" id="WEJ-8l-QJ5"/>
                                     <constraint firstAttribute="height" constant="157" id="Wdz-lA-o6o"/>
+                                    <constraint firstAttribute="bottom" secondItem="Dbv-Wm-Jx5" secondAttribute="bottom" constant="-2" id="k3S-rr-3Fg"/>
                                     <constraint firstItem="NGS-1W-isG" firstAttribute="centerX" secondItem="SUl-oz-Xnw" secondAttribute="centerX" id="m8C-4e-7Ee"/>
                                 </constraints>
                             </view>
@@ -123,18 +132,11 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Location Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAf-PN-IiR">
                                 <rect key="frame" x="0.0" y="221" width="600" height="222"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eqJ-lX-ffS">
                                 <rect key="frame" x="0.0" y="221" width="600" height="379"/>
                             </mapView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbv-Wm-Jx5">
-                                <rect key="frame" x="276" y="507" width="49" height="30"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="submitLocationButtonPressed:" destination="fkz-Ho-96N" eventType="touchUpInside" id="naw-Ca-uDK"/>
-                                </connections>
-                            </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="swa-eM-Ukx">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                             </activityIndicatorView>
@@ -148,10 +150,8 @@
                             <constraint firstItem="w8b-cB-kkq" firstAttribute="leading" secondItem="RUD-w0-Hxe" secondAttribute="leading" id="XWY-UR-A5l"/>
                             <constraint firstItem="SUl-oz-Xnw" firstAttribute="leading" secondItem="RUD-w0-Hxe" secondAttribute="leading" id="Xwc-G0-5GB"/>
                             <constraint firstItem="swa-eM-Ukx" firstAttribute="centerY" secondItem="RUD-w0-Hxe" secondAttribute="centerY" id="ZhZ-U8-knN"/>
-                            <constraint firstItem="yre-P0-RQA" firstAttribute="top" secondItem="Dbv-Wm-Jx5" secondAttribute="bottom" constant="63" id="aZ0-Eo-ccg"/>
                             <constraint firstItem="eqJ-lX-ffS" firstAttribute="leading" secondItem="RUD-w0-Hxe" secondAttribute="leading" id="arX-m1-5F6"/>
                             <constraint firstAttribute="trailing" secondItem="eqJ-lX-ffS" secondAttribute="trailing" id="atS-vN-Zn0"/>
-                            <constraint firstItem="Dbv-Wm-Jx5" firstAttribute="centerX" secondItem="RUD-w0-Hxe" secondAttribute="centerX" id="cSg-XW-8Qm"/>
                             <constraint firstItem="SUl-oz-Xnw" firstAttribute="top" secondItem="vPI-nf-cq6" secondAttribute="bottom" id="eSD-VN-VpP"/>
                             <constraint firstItem="yre-P0-RQA" firstAttribute="top" secondItem="eqJ-lX-ffS" secondAttribute="bottom" id="fLv-Pq-fNy"/>
                             <constraint firstItem="swa-eM-Ukx" firstAttribute="centerX" secondItem="RUD-w0-Hxe" secondAttribute="centerX" id="gxb-gF-vBJ"/>

@@ -9,10 +9,10 @@
 import Foundation
 import MapKit
 
-struct StudentLocation {
+struct StudentLocation {	
+	
 	let createdAt, firstName, lastName, mapString, mediaURL, objectId, uniqueKey, updatedAt: String
 	let annotation = MKPointAnnotation()
-	
 	
 	init(data: NSDictionary){
 		self.createdAt = data["createdAt"] as! String

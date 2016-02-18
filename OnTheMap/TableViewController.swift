@@ -26,7 +26,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let CellReuseId = "StudentCell"
-		let student = ParseClient.sharedInstance.students[indexPath.row]
+		let student = StudentInformation.sharedInstance.students[indexPath.row]
 		let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseId) as UITableViewCell!
 		cell.textLabel!.text = "\(student.firstName) \(student.lastName)"
 		
@@ -34,11 +34,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
 	}
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return ParseClient.sharedInstance.students.count
+		return StudentInformation.sharedInstance.students.count
 	}
 	
 	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		let cell = ParseClient.sharedInstance.students[indexPath.row]
+		let cell = StudentInformation.sharedInstance.students[indexPath.row]
 
 		let app = UIApplication.sharedApplication()
 		if let toOpen = cell.annotation.subtitle {
